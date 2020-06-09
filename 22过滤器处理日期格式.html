@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue</title>
+	</head>
+	<body>
+		<!-- 我是Vue所管理的视图div#app -->
+		<div id="app">
+			<table>
+				<tr>
+					<th>序号</th>
+					<th>品牌</th>
+					<th>日期</th>
+					<th>操作</th>
+				</tr>
+				<tr v-for="(item,i) in list">
+					<td>{{i+1}}</td>
+					<td>{{item.id}}</td>
+					<td>{{item.name}}</td>
+					<td>{{item.date |formatDate}}</td>
+					<td><a href="#">删除</a></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+	<script src="./vue.js"></script>
+    <script src="./moment.js"></script>
+	<script>
+		
+		var list=[
+			{
+				id:1,
+				name:'小强',
+				date :new Date()
+			},
+			{
+				id:2,
+				name:'小强2',
+				date :new Date()
+			},
+			{
+				id:3,
+				name:'小强3',
+				date :new Date()
+			}
+			
+			
+		]
+		
+		Vue.filter('formatDate',(v)=>{
+			return moment(v).format('YYYY-MM-DD HH:mm:ss')
+		})
+		new Vue({
+			el: "#app",
+			data: {
+				items: [{
+					    id:1,
+						name: 'LV',
+						date: '2018-8-1'
+					}, {
+						id:2,
+						name: 'Lenovo',
+						date: '2018-8-1'
+					}, {
+						id:3,
+						name: 'TCL',
+						date: '2018-8-1'
+					}
+
+				],
+				list
+			},
+			methods:{
+				
+			},
+			filters:{
+				
+			}
+		})
+	</script>
+</html>

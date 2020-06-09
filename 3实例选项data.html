@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>123</title>
+	</head>
+	<body>
+		<!-- 我是Vue所管理的视图div#app -->
+		<div id="app">
+			 <!-- 在视图里使用Vue实例中data里面的list数据 -->
+			 {{msg}}
+			 {{count}}
+		</div>
+	</body>
+	<script src="./vue.js"></script>
+	
+	<script>
+		var vm=new Vue({
+			el:"#app",
+			// data作用:指定当前Vue实例的数据对象
+        // 1. data中的数据是响应式数据
+        // 2. 值可以是一个对象 {属性: 值}
+        // 3. 所有数据部分写在data中
+        // 4. 在当前Vue实例所管理的视图中通过属性名使用data中的数据
+        // 5. 可以通过vm.$data.属性 访问数据
+        // 6. 可以通过vm.属性 访问数据(更简单)
+			data:{
+				 msg: '第一个Vue实例对象',
+				 count:1
+			}
+		})
+		//console.log(vm)
+		//console.log(vm.msg)
+		
+	</script>
+</html>

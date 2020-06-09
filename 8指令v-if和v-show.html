@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue</title>
+	</head>
+	<body>
+		
+		<div id="app">
+			
+			<!-- 如果isShow的值是true ,就显示p标签 -->
+        <p v-if="isShow">我是p标签中的内容</p>
+        <p v-show="isShow">我是p标签中的内容</p>
+        <!-- 如果标签显示与隐藏切换频繁, 就使用v-show 
+            v-show本质是通过修改标签的display值
+        -->
+		</div>
+	</body>
+	<script src="./vue.js"></script>
+	
+	<script>
+		var vm=new Vue({
+			el:"#app",
+			data:{
+				isShow:false
+			}
+		})
+		
+	</script>
+</html>

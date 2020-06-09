@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue</title>
+	</head>
+	<body>
+		<!-- 我是Vue所管理的视图div#app -->
+		<div id="app">
+			<!--
+			 v-bind 绑定标签的任何属性
+			 场景：标签的属性值是不确定的可以修改
+			 用法：v-bind:要绑定的属性名="data 中的数据"
+			 简写可以去掉v-bind 直接：属性名
+			 -->
+			 <p v-bind:id="ID">p标签 </p>
+			  <img :src="src"> </img>
+		</div>
+	</body>
+	<script src="./vue.js"></script>
+	
+	<script>
+		new Vue({
+			el:"#app",
+			data:{
+				ID:'abc',
+				src:'./logo.png'
+			}
+		})
+		
+	</script>
+</html>

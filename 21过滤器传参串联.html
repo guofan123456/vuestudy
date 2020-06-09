@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue</title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<!-- 3. 调用过滤器: (msg会自动传入到toUpper中)-->
+			<!-- 传参 -->
+			<p>{{msg |toUpper('元')}}</p>
+			
+			<!-- 串联 -->
+			<p>{{msg |A |B('元')}}</p>
+		</div>
+		
+		
+	</body>
+	<script src="./vue.js"></script>
+	
+	<script>
+		
+		// 1. 定义全局过滤器
+		//v不用传为被处理的数据 y 传入参数
+    Vue.filter('toUpper', (v,y) => {
+       
+        return '$'+v+y;
+    });
+	
+	 Vue.filter('A', (v,y) => {
+	   
+	    return '$'+v
+	});
+	 Vue.filter('B', (v,y) => {
+	   
+	    return v+y;
+	});
+		new Vue({
+			el:"#app",
+			data:{
+				msg:"100"
+			}
+		});
+		
+		
+		
+		
+	</script>
+</html>

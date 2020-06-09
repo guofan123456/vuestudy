@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue</title>
+	</head>
+	<body>
+		<!-- 我是Vue所管理的视图div#app -->
+		<div id="app">
+			 <!-- 在视图里使用Vue实例中data里面的list数据 -->
+			<p>{{list}}</p>
+			<input v-focus />
+		</div>
+	</body>
+	<script src="./vue.js"></script>
+	
+	<script>
+		// 全局自定义指令
+    // 1.在创建 Vue 实例之前定义全局自定义指令Vue.directive()
+    // 2. Vue.directive('指令的核心名称',{ inserted: (使用指令时的DOM对象) => { 具体的DOM操作 } } );
+		Vue.directive('focus',{
+			inserted: (el) => {
+            // el 就是指令所在的DOM对象
+            el.focus();
+        }
+		})
+		new Vue({
+			el:"#app",
+			data:{
+				list:"helloworld"
+			}
+		})
+		
+	</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue</title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<!-- 3. 调用过滤器: (msg会自动传入到toUpper中)-->
+			<p>{{msg |toUpper}}</p>
+		</div>
+		
+	</body>
+	<script src="./vue.js"></script>
+	
+	<script>
+		
+		new Vue({
+			el:"#app",
+			data:{
+				msg:"helloworld"
+			},
+			methods:{
+				
+			},
+			 // 1. 设置vm的过滤器filters选项
+			filters:{
+				toUpper(value){
+					 // 2. 在过滤器的方法中操作数据并返回结果
+					 value=value.toUpperCase();
+					//value = value.charAt(0).toUpperCase() + value.substr(1).toLowerCase();
+					
+					 return value;
+				}
+			}
+		})
+		
+		
+		
+	</script>
+</html>

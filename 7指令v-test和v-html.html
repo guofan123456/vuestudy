@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue</title>
+	</head>
+	<body>
+		<!-- 我是Vue所管理的视图div#app -->
+		<div id="app">
+			<p v-text="msg">p标签</p>
+			<!-- 更新整个标签中的全部内容 不能识别标签 如果有插值表达式也会被v-text更新  -->
+			<p v-text="msg">{{count}}</p>
+			<p >我是:{{count}}</p>
+			<p v-text="str"></p>
+			<hr>
+			<!-- 更新整个标签中的全部内容 可以识别标签并渲染  也可以识别js 会导致安全问题慎用-->
+			<p v-html="str"></p>
+		</div>
+	</body>
+	<script src="./vue.js"></script>
+	
+	<script>
+		new Vue({
+			el:"#app",
+			data:{
+				msg:"abc",
+				count:100,
+				str:'<span onclick="alert(1)">span标签</sapn>'
+			},
+			methods:{
+				fn1(){
+					alert("vue")
+				}
+			}
+		})
+		
+	</script>
+</html>

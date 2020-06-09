@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue</title>
+	</head>
+	<body>
+		
+		<div id="app">
+ <!-- 2. 通过组件名使用组件 -->
+    <parent-Com></parent-Com>
+			
+		</div>
+	</body>
+	<script src="./vue.js"></script>
+
+	<script>
+		 // 1. 局部组件的选项
+    const childCom = {
+        template: `
+<div>
+<h1>childCom局部组件</h1>
+    </div>
+`
+    };
+		// 在parentCom组件选项中 使用components选项设置其子组件
+    // 在template中使用该子组件
+    const parentCom = {
+        template: `
+<div>
+<h1>parentCom局部组件</h1>
+<child-Com></child-Com>
+    </div>
+`,
+        components: {
+            'childCom': childCom
+        }
+    };
+	
+		new Vue({
+			el: "#app",
+			data: {
+				list: "helloworld"
+			},
+			components: {
+            'parentCom': parentCom
+        }
+		})
+	</script>
+</html>

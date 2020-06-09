@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue</title>
+	</head>
+	<body>
+		<!-- 我是Vue所管理的视图div#app -->
+		<div id="app">
+			<!-- 在视图里使用Vue实例中data里面的list数据 -->
+			<input ref="txt" />
+			{{list}}
+		</div>
+	</body>
+	<script src="./vue.js"></script>
+
+	<script>
+		new Vue({
+			el: "#app",
+			data: {
+				list: "helloworld"
+			},
+			methods: {
+
+			},
+			// mounted当页面加载完毕执行
+			mounted() {
+				console.log(this.$refs.txt);
+				// 2. 用this.$refs.属性 去操作DOM
+				//focus()获取焦点
+				this.$refs.txt.focus();
+				this.$refs.txt.value='1111';
+			},
+		})
+	</script>
+</html>

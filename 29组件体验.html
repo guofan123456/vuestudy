@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue</title>
+	</head>
+	<body>
+		<!-- 我是Vue所管理的视图div#app -->
+		<div id="app">
+			<!-- 在视图里使用Vue实例中data里面的list数据 -->
+			<btn-span></btn-span>
+			
+			<btn-span></btn-span>
+		</div>
+		<div id="app1">
+			<!-- 在视图里使用Vue实例中data里面的list数据 -->
+			<btn-span></btn-span>
+			
+			<btn-span></btn-span>
+		</div>
+	</body>
+	<script src="./vue.js"></script>
+
+	<script>
+		Vue.component('btn-span', {
+			template: `
+                   <div>
+                   <span>{{count}}</span> 
+                   <button @click="changeCount">按钮</button>
+                    </div>
+                    `,
+			data(){
+				return {
+					count:0
+				}
+			},
+			methods:{
+				changeCount(){
+					this.count++
+				}
+			}
+
+		})
+		new Vue({
+			el: "#app",
+			data: {
+				list: "helloworld"
+			}
+		})
+		
+		new Vue({
+			el: "#app1",
+			data: {
+				list: "helloworld"
+			}
+		})
+	</script>
+</html>
